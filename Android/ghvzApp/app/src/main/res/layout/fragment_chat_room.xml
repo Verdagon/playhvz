@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2020 Google Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".screens.chatroom.ChatRoomFragment">
+
+  <ProgressBar
+    android:id="@+id/progress_bar"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/horizontal_progress_bar_height"
+    android:indeterminate="true"
+    android:paddingStart="@dimen/screen_margin_horizontal"
+    android:paddingEnd="@dimen/screen_margin_horizontal" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/message_list"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginStart="@dimen/screen_margin_horizontal"
+    android:layout_marginEnd="@dimen/screen_margin_horizontal"
+    android:layout_weight="1"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:layout_constraintBottom_toTopOf="@+id/divider" />
+
+  <View
+    android:id="@+id/divider"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/divider_height"
+    android:background="@color/divider" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/screen_margin_horizontal"
+    android:layout_marginEnd="@dimen/screen_margin_horizontal"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <androidx.emoji.widget.EmojiEditText
+      android:id="@+id/message_input"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="8dp"
+      android:layout_weight="1"
+      android:maxHeight="124dp"
+      android:minHeight="52dp"
+      android:orientation="vertical" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/send_button"
+      style="@style/Widget.MaterialComponents.Button.TextButton"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:enabled="false"
+      app:cornerRadius="24dp"
+      app:icon="@drawable/ic_send"
+      app:iconGravity="end" />
+  </LinearLayout>
+
+</LinearLayout>
